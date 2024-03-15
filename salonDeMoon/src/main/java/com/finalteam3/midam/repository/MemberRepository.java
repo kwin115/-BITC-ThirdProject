@@ -80,6 +80,6 @@ public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
             "FROM MemberEntity m " +
             "LEFT JOIN TreatSaleEntity ts ON m.userName = ts.userName " +
             "WHERE (m.userName like %:keyword% or m.userPhone like %:keyword% ) and ( m.adminYn='N')"+
-            "GROUP BY m.userName")
+            "GROUP BY m.userName, m.gender, m.userPhone, m.userId, m.userPwd1, m.userPwd2, m.createDate, m.adminYn, m.userMemo, m.userIdx")
     List<Object[]> searchMemberDTOList(String keyword);
 }
